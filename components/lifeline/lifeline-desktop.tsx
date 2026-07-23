@@ -87,7 +87,7 @@ export function LifelineDesktop({
     <section
       ref={sectionRef}
       className={cn(
-        "relative h-full min-h-0 select-none overflow-hidden [&_a]:cursor-pointer",
+        "relative h-full min-h-0 select-none [&_a]:cursor-pointer",
         !isLayoutReady && "invisible",
         className,
       )}
@@ -95,7 +95,7 @@ export function LifelineDesktop({
       style={showIntro ? introStyle : undefined}
     >
       <LifelineHoverImageProvider preload={hoverImages}>
-      <div className="flex h-full items-center overflow-hidden">
+      <div className="flex h-full items-center">
         <div
           ref={trackRef}
           className={cn(

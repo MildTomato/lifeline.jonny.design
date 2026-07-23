@@ -130,6 +130,18 @@
 }
 
 .timeline-canvas {
+  --print-stage: oklch(0.9 0 0);
+  --print-face: oklch(0.99 0 0);
+  --print-highlight: oklch(0.16 0 0);
+  --print-muted: oklch(0.38 0 0);
+  --print-faint: oklch(0.55 0 0);
+  --print-line: oklch(0.68 0 0);
+  --print-truss: oklch(0.32 0 0);
+  --print-guide: oklch(0.64 0 0);
+  --print-icon-filter: grayscale(100%) invert(1);
+}
+
+.dark .timeline-canvas {
   --background: oklch(0 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.08 0 0);
@@ -144,6 +156,15 @@
   --accent-foreground: oklch(0.985 0 0);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 16%);
+  --print-stage: oklch(0.23 0 0);
+  --print-face: oklch(0 0 0);
+  --print-highlight: oklch(0.98 0 0);
+  --print-muted: oklch(0.7 0 0);
+  --print-faint: oklch(0.5 0 0);
+  --print-line: oklch(0.4 0 0);
+  --print-truss: oklch(0.58 0 0);
+  --print-guide: oklch(0.56 0 0);
+  --print-icon-filter: grayscale(100%);
 }
 
 .timeline-canvas ::selection {

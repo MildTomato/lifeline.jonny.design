@@ -38,9 +38,11 @@ export function getLifelineEventEffect(
 export function LifelineEventText({
   event,
   className,
+  disableLinks = false,
 }: {
   event: LifelineEvent
   className?: string
+  disableLinks?: boolean
 }) {
   const content = getEventContent(event)
 
@@ -53,6 +55,10 @@ export function LifelineEventText({
       {content.map((segment, index) =>
         segment.type === "break" ? (
           <br key={index} />
+        ) : segment.type === "link" && disableLinks ? (
+          <span key={index} className="font-normal text-foreground">
+            {segment.value}
+          </span>
         ) : segment.type === "link" ? (
           <a
             key={index}

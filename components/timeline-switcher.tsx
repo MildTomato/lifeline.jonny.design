@@ -1,63 +1,59 @@
 "use client"
 
-import { useTransition } from "react"
+import { useOptimistic, useTransition } from "react"
 import { useRouter } from "next/navigation"
-import { DatabaseIcon, ZapIcon } from "lucide-react"
 
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "@/components/ui/toggle-group"
+import { SegmentedControl } from "@/components/segmented-control"
 import type { DatabaseTimelineId } from "@/lib/database-timelines"
 
 interface TimelineSwitcherProps {
   activeTimeline: DatabaseTimelineId
 }
 
-function isDatabaseTimelineId(value: string): value is DatabaseTimelineId {
-  return value === "postgres" || value === "supabase"
-}
+const timelines = [
+  {
+    value: "postgres",
+    label: "Postgres",
+    ariaLabel: "Show PostgreSQL timeline",
+  },
+  {
+    value: "supabase",
+    label: "Supabase",
+    ariaLabel: "Show Supabase timeline",
+  },
+] satisfies {
+  value: DatabaseTimelineId
+  label: string
+  ariaLabel: string
+}[]
 
 export function TimelineSwitcher({
   activeTimeline,
 }: TimelineSwitcherProps) {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
+  const [selectedTimeline, setSelectedTimeline] =
+    useOptimistic(activeTimeline)
 
-  const changeTimeline = (values: string[]) => {
-    const nextTimeline = values.at(-1)
-
-    if (
-      !nextTimeline ||
-      !isDatabaseTimelineId(nextTimeline) ||
-      nextTimeline === activeTimeline
-    ) {
+  const changeTimeline = (nextTimeline: DatabaseTimelineId) => {
+    if (nextTimeline === selectedTimeline) {
       return
     }
 
     startTransition(() => {
-      router.push(`/${nextTimeline}`)
+      setSelectedTimeline(nextTimeline)
+      const query = window.location.search
+      router.push(`/${nextTimeline}${query}`)
     })
   }
 
   return (
-    <ToggleGroup
-      value={[activeTimeline]}
+    <SegmentedControl
+      value={selectedTimeline}
+      items={timelines}
       onValueChange={changeTimeline}
+      ariaLabel="Choose a database timeline"
       disabled={isPending}
-      variant="outline"
-      size="sm"
-      spacing={0}
-      aria-label="Choose a database timeline"
-    >
-      <ToggleGroupItem value="postgres" aria-label="Show PostgreSQL timeline">
-        <DatabaseIcon data-icon="inline-start" />
-        Postgres
-      </ToggleGroupItem>
-      <ToggleGroupItem value="supabase" aria-label="Show Supabase timeline">
-        <ZapIcon data-icon="inline-start" />
-        Supabase
-      </ToggleGroupItem>
-    </ToggleGroup>
+    />
   )
 }

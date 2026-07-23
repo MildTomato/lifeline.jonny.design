@@ -85,7 +85,7 @@ function LightboxMedia({
       <img
         src={photo.src}
         alt={photo.alt}
-        className="block h-full w-full object-cover"
+        className="block h-full w-full grayscale object-cover"
       />
     )
   }
@@ -100,7 +100,7 @@ function LightboxMedia({
       playsInline
       preload="auto"
       aria-label={photo.alt}
-      className="block h-full w-full object-cover"
+      className="block h-full w-full grayscale object-cover"
     />
   )
 }
@@ -277,7 +277,7 @@ export function LifelineLightbox({
       />
       <figure
         ref={figureRef}
-        className="absolute cursor-zoom-out overflow-hidden rounded-xl shadow-2xl ring-1 ring-black/10 dark:ring-white/15"
+        className="absolute cursor-zoom-out overflow-hidden rounded-md shadow-2xl ring-1 ring-black/10 dark:ring-white/15"
         style={{
           left,
           top,

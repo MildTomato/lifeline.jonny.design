@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "next-themes";
+
+import { ThemeProvider } from "@/components/theme-provider";
+
 import "./globals.css";
 
 const inter = Inter({
@@ -25,13 +27,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} dark h-full font-sans antialiased`}
+      className={`${inter.variable} h-full font-sans antialiased`}
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col">
         <ThemeProvider
           attribute="class"
-          forcedTheme="dark"
+          defaultTheme="dark"
           enableSystem={false}
           disableTransitionOnChange
         >

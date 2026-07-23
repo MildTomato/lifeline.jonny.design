@@ -101,7 +101,7 @@ export function LifelinePhotoCard({
       >
         <div
           className={cn(
-            "overflow-hidden rounded-xl shadow-xl ring-1 ring-black/10 transition-[transform,box-shadow] duration-200 ease-out dark:ring-white/15",
+            "overflow-hidden rounded-md shadow-xl ring-1 ring-black/10 transition-[transform,box-shadow] duration-200 ease-out dark:ring-white/15",
             animateIntro && "lifeline-marker-intro",
             "group-hover/photo:scale-[1.03] group-hover/photo:shadow-2xl",
           )}
