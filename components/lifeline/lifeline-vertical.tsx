@@ -189,6 +189,7 @@ const LifelineVerticalEntry = forwardRef<
   return (
     <li
       ref={ref}
+      data-marker-id={marker.id}
       className={hasContent ? "pb-10" : "pb-3"}
       aria-label={marker.label ?? `${marker.year}`}
     >
@@ -306,8 +307,10 @@ export function LifelineVertical({
   title = "Lifeline",
   ageLabel = "Age",
   axisLabel = "Years",
-  periodAxisLabel,
 }: LifelineProps) {
+  const hasPeriodLabels = markers.some(
+    (marker) => marker.periodLabel !== undefined,
+  )
   const heights = useMemo(
     () =>
       markers.map((marker, index) =>
@@ -442,11 +445,6 @@ export function LifelineVertical({
           <p className="text-[11px] font-medium uppercase leading-5 tracking-[0.08em] text-zinc-500 transition-colors duration-300 dark:text-zinc-600">
             {axisLabel}
           </p>
-          {periodAxisLabel ? (
-            <p className="text-[11px] font-medium uppercase leading-4 tracking-[0.08em] text-zinc-500 transition-colors duration-300 dark:text-zinc-600">
-              {periodAxisLabel}
-            </p>
-          ) : null}
         </div>
       </div>
 
@@ -481,7 +479,7 @@ export function LifelineVertical({
                 birthYear,
               )}
               showAxisLabel={
-                !periodAxisLabel ||
+                !hasPeriodLabels ||
                 isFirstMarkerInAxisGroup(markers, index)
               }
             />

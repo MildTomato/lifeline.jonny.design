@@ -40,11 +40,18 @@ function PersonSilhouette({
   )
 }
 
-export function PeopleScale({ className }: { className?: string }) {
+export function PeopleScale({
+  className,
+  style,
+}: {
+  className?: string
+  style?: CSSProperties
+}) {
   return (
     <div
       aria-label="Two realistic adult silhouettes shown at five feet six inches and six feet tall"
-      className={cn("flex items-end gap-3 opacity-90", className)}
+      className={cn("flex items-end gap-3 opacity-70", className)}
+      style={style}
     >
       <PersonSilhouette
         label="5′6″"

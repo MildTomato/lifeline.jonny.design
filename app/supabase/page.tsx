@@ -7,6 +7,7 @@ import {
   getPrintDimensionsFromSearchParams,
   getShowPrintGuidesFromSearchParams,
 } from "@/lib/print-dimensions"
+import { getSupabaseStargazers } from "@/lib/supabase-stargazers"
 
 export const metadata: Metadata = {
   title: "The Supabase Timeline",
@@ -26,7 +27,10 @@ interface SupabaseTimelinePageProps {
 export default async function SupabaseTimelinePage({
   searchParams,
 }: SupabaseTimelinePageProps) {
-  const resolvedSearchParams = await searchParams
+  const [resolvedSearchParams, stargazerSeries] = await Promise.all([
+    searchParams,
+    getSupabaseStargazers(),
+  ])
   const requestedView = resolvedSearchParams.view
   const view = Array.isArray(requestedView)
     ? requestedView.at(-1)
@@ -46,6 +50,7 @@ export default async function SupabaseTimelinePage({
       initialPrintBoardCount={getPrintBoardCountFromSearchParams(
         resolvedSearchParams,
       )}
+      stargazerSeries={stargazerSeries}
     />
   )
 }

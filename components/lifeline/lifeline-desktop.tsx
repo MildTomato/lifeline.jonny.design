@@ -11,6 +11,7 @@ import type { LifelineEventImage, LifelineProps } from "./types"
 import { getLifelineEventImage } from "./lifeline-event"
 import { LifelineHoverImageProvider } from "./lifeline-hover-image"
 import { LifelineFloatingPhotos } from "./lifeline-photos"
+import { LifelineStargazerPlot } from "./lifeline-stargazers"
 import { useLifelineIntro } from "./use-lifeline-intro"
 import { useLifelineScroll } from "./use-lifeline-scroll"
 import {
@@ -18,6 +19,7 @@ import {
   isFirstMarkerInAgeGroup,
   isFirstMarkerInAxisGroup,
 } from "./lifeline-utils"
+import { getLifelineAxisTypographyStyle } from "./lifeline-axis-label"
 
 export function LifelineDesktop({
   markers,
@@ -26,8 +28,11 @@ export function LifelineDesktop({
   title = "Lifeline",
   ageLabel = "Age",
   axisLabel = "Years",
-  periodAxisLabel,
+  stargazerSeries,
 }: LifelineProps) {
+  const hasPeriodLabels = markers.some(
+    (marker) => marker.periodLabel !== undefined,
+  )
   const widths = useMemo(
     () =>
       markers.map((marker, index) =>
@@ -78,7 +83,8 @@ export function LifelineDesktop({
   const trackWidth =
     LIFELINE_STICKY_SHIELD_WIDTH + widths.reduce((sum, width) => sum + width, 0)
 
-  const introStyle = {
+  const timelineStyle = {
+    ...getLifelineAxisTypographyStyle(),
     "--lifeline-labels-ms": `${intro.labelsDuration}ms`,
     "--lifeline-rail-ms": `${intro.railDuration}ms`,
   } as CSSProperties
@@ -92,7 +98,7 @@ export function LifelineDesktop({
         className,
       )}
       aria-label={title}
-      style={showIntro ? introStyle : undefined}
+      style={timelineStyle}
     >
       <LifelineHoverImageProvider preload={hoverImages}>
       <div className="flex h-full items-center">
@@ -100,7 +106,7 @@ export function LifelineDesktop({
           ref={trackRef}
           className={cn(
             "relative flex w-max items-start will-change-transform [--lifeline-people-top:calc(14.5rem+40px)]",
-            periodAxisLabel
+            hasPeriodLabels
               ? "[--lifeline-rail:6.25rem]"
               : "[--lifeline-rail:5rem]",
           )}
@@ -115,12 +121,20 @@ export function LifelineDesktop({
               <LifelineStickyLabels
                 ageLabel={ageLabel}
                 axisLabel={axisLabel}
-                periodAxisLabel={periodAxisLabel}
               />
             </div>
           </div>
 
           <div className="relative">
+            {stargazerSeries ? (
+              <LifelineStargazerPlot
+                markers={markers}
+                offsets={offsets}
+                widths={widths}
+                points={stargazerSeries}
+              />
+            ) : null}
+
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-x-0 top-[var(--lifeline-rail)] h-px overflow-hidden"
@@ -133,7 +147,7 @@ export function LifelineDesktop({
               />
             </div>
 
-            <div className="relative flex items-start">
+            <div className="relative z-10 flex items-start">
               {markers.map((marker, index) => (
                 <LifelineMarkerColumn
                   key={marker.id}
@@ -144,14 +158,14 @@ export function LifelineDesktop({
                   animateIntro={showIntro}
                   introDelay={intro.getMarkerDelay(index)}
                   introDuration={intro.getMarkerFadeDuration(index)}
-                  showPeriodLabel={Boolean(periodAxisLabel)}
+                  showPeriodLabel={hasPeriodLabels}
                   showAgeLabel={isFirstMarkerInAgeGroup(
                     markers,
                     index,
                     birthYear,
                   )}
                   showAxisLabel={
-                    !periodAxisLabel ||
+                    !hasPeriodLabels ||
                     isFirstMarkerInAxisGroup(markers, index)
                   }
                 />

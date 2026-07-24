@@ -1,5 +1,5 @@
 import type { CompanyIconId } from "./company-icon"
-
+import type { StargazerPoint } from "@/lib/stargazer-data"
 
 export interface LifelineMentor {
   name: string
@@ -37,6 +37,8 @@ export interface LifelineEventImage {
  * scattered, tilted, and draggable, like photos loose in a notebook.
  */
 export interface LifelinePhoto extends LifelineEventImage {
+  /** Intrinsic width divided by height, used by physical print layout estimates. */
+  aspectRatio?: number
   /** 0..1 across the marker's slot; defaults to a seeded scatter. */
   x?: number
   /** Pixels below the rail; defaults to a seeded scatter. */
@@ -96,9 +98,9 @@ export interface LifelineLegendItem {
 export interface LifelineProps {
   markers: LifelineMarker[]
   birthYear: number
+  stargazerSeries?: StargazerPoint[]
   className?: string
   title?: string
   ageLabel?: string
   axisLabel?: string
-  periodAxisLabel?: string
 }

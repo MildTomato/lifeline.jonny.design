@@ -18,6 +18,7 @@ import {
   PRINT_BOARD_COUNT_MIN,
   type PrintDimensions,
 } from "@/lib/print-dimensions"
+import type { PrintLayoutResult } from "@/lib/print-layout"
 
 const dimensionOptions = Array.from(
   {
@@ -51,6 +52,7 @@ const boardCountOptions = Array.from(
 interface SettingSelectProps {
   label: string
   value: number
+  disabled?: boolean
   options: {
     label: string
     value: string
@@ -62,6 +64,7 @@ interface SettingSelectProps {
 function SettingSelect({
   label,
   value,
+  disabled,
   options,
   formatSelectedValue,
   onChange,
@@ -70,6 +73,7 @@ function SettingSelect({
     <Select
       items={options}
       value={String(value)}
+      disabled={disabled}
       onValueChange={(nextValue) => {
         if (nextValue !== null) {
           onChange(Number(nextValue))
@@ -108,6 +112,8 @@ function SettingSelect({
 interface PrintDimensionControlsProps {
   dimensions: PrintDimensions
   plannedBoardCount: number
+  renderedBoardCount: number
+  layout: PrintLayoutResult
   showGuides: boolean
   onPanelWidthChange: (value: number) => void
   onTrussHeightChange: (value: number) => void
@@ -118,6 +124,8 @@ interface PrintDimensionControlsProps {
 export function PrintDimensionControls({
   dimensions,
   plannedBoardCount,
+  renderedBoardCount,
+  layout,
   showGuides,
   onPanelWidthChange,
   onTrussHeightChange,
@@ -125,11 +133,20 @@ export function PrintDimensionControls({
   onPlannedBoardCountChange,
 }: PrintDimensionControlsProps) {
   const totalWallWidth =
-    dimensions.panelWidthFeet * plannedBoardCount
-
+    dimensions.panelWidthFeet * renderedBoardCount
+  const fitLabel = {
+    comfortable: "Comfortable fit",
+    tight: "Tight fit",
+    impossible: "Impossible fit",
+  }[layout.fit.status]
+  const recommendations = layout.recommendations.slice(0, 2)
   return (
     <aside
       aria-label="Print wall dimensions"
+      data-fit={layout.fit.status}
+      data-maximum-displacement={Number(
+        layout.fit.maximumDisplacementFeet.toFixed(2),
+      )}
       className="flex items-center gap-2 whitespace-nowrap"
     >
       <SettingSelect
@@ -168,9 +185,27 @@ export function PrintDimensionControls({
         <RulerIcon data-icon="inline-start" />
         {showGuides ? "Hide dimensions" : "Show dimensions"}
       </Toggle>
-      <p className="px-1 text-[11px] font-normal text-muted-foreground">
-        Straight wall · {plannedBoardCount} boards · {totalWallWidth} ft
-      </p>
+      <div
+        aria-live="polite"
+        className="flex flex-col items-start px-1 text-[11px] font-normal leading-4 text-muted-foreground"
+      >
+        <p>
+          {`Straight wall · ${renderedBoardCount} boards · ${totalWallWidth} ft`}
+        </p>
+        <p>
+          <span className="text-foreground">{fitLabel}</span>
+          {` · ${layout.fit.markerCount} anchors · ${layout.fit.laneCount} lanes`}
+          {layout.fit.status !== "comfortable" &&
+          recommendations.length > 0
+            ? ` · Try ${recommendations
+                .map(
+                  (recommendation) =>
+                    `${recommendation.boardCount}×${recommendation.panelWidthFeet} ft`,
+                )
+                .join(" or ")}`
+            : null}
+        </p>
+      </div>
     </aside>
   )
 }

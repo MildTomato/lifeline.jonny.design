@@ -8,6 +8,7 @@ import {
   getLifelineEventKey,
   LifelineEventText,
 } from "./lifeline-event"
+import { LifelineAxisLabel } from "./lifeline-axis-label"
 import { useLifelineFireworks } from "./lifeline-fireworks"
 import { useLifelineHoverImage } from "./lifeline-hover-image"
 import { aggregateLifelinePeople, LifelinePeople } from "./lifeline-people"
@@ -50,6 +51,7 @@ export const LifelineMarkerColumn = forwardRef<
   return (
     <div
       ref={ref}
+      data-marker-id={marker.id}
       className="group relative shrink-0 pr-8 transition-opacity duration-300 ease-out will-change-opacity"
       style={{ width: minWidth }}
       aria-label={marker.label ?? `${marker.year}`}
@@ -70,25 +72,15 @@ export const LifelineMarkerColumn = forwardRef<
           aria-hidden="true"
         />
 
-        <div className="flex w-full flex-col items-start text-left">
-          <p className="mb-5 h-4 text-[11px] font-medium leading-4 tabular-nums text-zinc-500 transition-colors duration-300 group-hover:text-black dark:text-zinc-600 dark:group-hover:text-zinc-400">
-            {showAgeLabel ? age : null}
-          </p>
-
-          <p
-            className={cn(
-              "h-5 whitespace-nowrap text-[15px] font-medium leading-5 tabular-nums text-zinc-500 transition-colors duration-300 group-hover:text-black dark:group-hover:text-white",
-              showPeriodLabel ? "mb-1" : "mb-6",
-            )}
-          >
-            {showAxisLabel ? marker.label ?? marker.year : null}
-          </p>
-
-          {showPeriodLabel ? (
-            <p className="mb-6 h-4 whitespace-nowrap text-[11px] font-normal leading-4 tabular-nums text-zinc-500 transition-colors duration-300 group-hover:text-black dark:text-zinc-600 dark:group-hover:text-zinc-300">
-              {marker.periodLabel}
-            </p>
-          ) : null}
+        <div>
+          <LifelineAxisLabel
+            age={age}
+            axis={marker.label ?? marker.year}
+            periodLabel={marker.periodLabel}
+            showAgeLabel={showAgeLabel}
+            showAxisLabel={showAxisLabel}
+            showPeriodLabel={showPeriodLabel}
+          />
 
           <div className="relative w-full pb-10 text-zinc-500 transition-colors duration-300 group-hover:text-black dark:group-hover:text-zinc-300">
             <div className="flex w-full flex-col items-start pt-6">

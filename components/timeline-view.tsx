@@ -14,6 +14,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { TimelineSwitcher } from "@/components/timeline-switcher"
 import type { DatabaseTimelineId } from "@/lib/database-timelines"
 import type { LifelineRecord } from "@/lib/lifeline-data"
+import type { StargazerPoint } from "@/lib/stargazer-data"
 import {
   normalizePrintBoardCount,
   normalizePrintDimension,
@@ -30,6 +31,7 @@ interface TimelineViewProps {
   initialPrintDimensions: PrintDimensions
   initialShowPrintGuides: boolean
   initialPrintBoardCount: number
+  stargazerSeries?: StargazerPoint[]
 }
 
 const viewModes = [
@@ -56,6 +58,7 @@ export function TimelineView({
   initialPrintDimensions,
   initialShowPrintGuides,
   initialPrintBoardCount,
+  stargazerSeries,
 }: TimelineViewProps) {
   const [viewMode, setViewMode] =
     useState<TimelineViewMode>(initialViewMode)
@@ -185,9 +188,7 @@ export function TimelineView({
             birthYear={timeline.birthYear}
             title={`${timeline.name} timeline`}
             axisLabel={activeTimeline === "supabase" ? "Year" : "Years"}
-            periodAxisLabel={
-              activeTimeline === "supabase" ? "Period" : undefined
-            }
+            stargazerSeries={stargazerSeries}
             className="h-full"
           />
         ) : (

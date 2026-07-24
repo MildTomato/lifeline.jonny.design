@@ -414,7 +414,7 @@ export const supabaseTimeline: LifelineRecord = {
       year: datedPosition(2019, 11),
       age: "Origin",
       label: "2019",
-      periodLabel: "Late",
+      periodLabel: "Nov 1, 2019",
       events: [
         milestone(
           "Realtime plants the seed",
@@ -429,9 +429,9 @@ export const supabaseTimeline: LifelineRecord = {
     {
       id: "supabase-founded",
       year: datedPosition(2020, 1),
-      age: "< 1y",
+      age: "1y",
       label: "2020",
-      periodLabel: "Early",
+      periodLabel: "Jan 1, 2020",
       events: [
         milestone(
           "Supabase is founded",
@@ -444,11 +444,34 @@ export const supabaseTimeline: LifelineRecord = {
       ],
     },
     {
+      id: "supabase-offsite-2020",
+      year: datedPosition(2020, 1, 15),
+      age: "1y",
+      label: "2020",
+      periodLabel: "Jan 15, 2020",
+      events: [
+        milestone(
+          "2020 Team Off Site",
+          "The early team meets in person.",
+        ),
+      ],
+      photos: [
+        {
+          src: "/images/supabase/early-work-2020.jpg",
+          alt: "The early Supabase team working together on September 4, 2020.",
+          aspectRatio: 1600 / 2133,
+          x: 0,
+          y: 96,
+          width: 180,
+        },
+      ],
+    },
+    {
       id: "supabase-alpha-launch",
       year: datedPosition(2020, 5, 27),
-      age: "< 1y",
+      age: "1y",
       label: "2020",
-      periodLabel: "Q2 · May 27",
+      periodLabel: "May 27, 2020",
       events: [
         milestone(
           "The alpha escapes",
@@ -463,9 +486,9 @@ export const supabaseTimeline: LifelineRecord = {
     {
       id: "supabase-auth",
       year: datedPosition(2020, 8, 5),
-      age: "< 1y",
+      age: "1y",
       label: "2020",
-      periodLabel: "Q3 · Aug 5",
+      periodLabel: "Aug 5, 2020",
       events: [
         milestone(
           "Supabase Auth",
@@ -478,58 +501,11 @@ export const supabaseTimeline: LifelineRecord = {
       ],
     },
     {
-      id: "supabase-photo-2020-09-04",
-      year: datedPosition(2020, 9, 4),
-      age: "< 1y",
-      label: "2020",
-      periodLabel: "Q3 · Sep 4",
-      events: [],
-      photos: [
-        {
-          src: "/images/supabase/early-work-2020.jpg",
-          alt: "The early Supabase team working together on September 4, 2020.",
-          x: 0,
-          y: 24,
-          width: 180,
-        },
-      ],
-    },
-    {
-      id: "supabase-offsite-2020",
-      year: datedPosition(2020, 9, 27),
-      age: "< 1y",
-      label: "2020",
-      periodLabel: "Q3 · Sep 27",
-      events: [
-        milestone(
-          "2020 team offsite",
-          "The early team meets in person.",
-        ),
-      ],
-    },
-    {
-      id: "supabase-photo-2020-12-07",
-      year: datedPosition(2020, 12, 7),
-      age: "< 1y",
-      label: "2020",
-      periodLabel: "Q4 · Dec 7",
-      events: [],
-      photos: [
-        {
-          src: "/images/supabase/early-team-apartment-2020.jpg",
-          alt: "The early Supabase team working together on December 7, 2020.",
-          x: 0,
-          y: 24,
-          width: 210,
-        },
-      ],
-    },
-    {
       id: "supabase-beta",
       year: datedPosition(2021, 1, 2),
       age: "1y",
       label: "2021",
-      periodLabel: "Q1 · Jan 2",
+      periodLabel: "Jan 2, 2021",
       events: [
         milestone(
           "Beta and seed round",
@@ -540,13 +516,46 @@ export const supabaseTimeline: LifelineRecord = {
           },
         ),
       ],
+      photos: [
+        {
+          src: "/images/supabase/early-team-apartment-2020.jpg",
+          alt: "The early Supabase team working together on December 7, 2020.",
+          aspectRatio: 4 / 3,
+          x: 0,
+          y: 104,
+          width: 210,
+        },
+      ],
+    },
+    {
+      id: "supabase-offsite-2021",
+      year: datedPosition(2021, 1, 15),
+      age: "1y",
+      label: "2021",
+      periodLabel: "Jan 15, 2021",
+      events: [
+        milestone(
+          "2021 team offsite",
+          "The growing remote team gets together.",
+        ),
+      ],
+      photos: [
+        {
+          src: "/images/supabase/team-working-2021.png",
+          alt: "The Supabase team working together on June 2, 2021.",
+          aspectRatio: 16 / 9,
+          x: 0,
+          y: 96,
+          width: 220,
+        },
+      ],
     },
     {
       id: "supabase-storage",
       year: datedPosition(2021, 3, 30),
       age: "1y",
       label: "2021",
-      periodLabel: "Q1 · Mar 30",
+      periodLabel: "Mar 30, 2021",
       events: [
         milestone(
           "Storage launches",
@@ -559,75 +568,11 @@ export const supabaseTimeline: LifelineRecord = {
       ],
     },
     {
-      id: "supabase-cli",
-      year: datedPosition(2021, 3, 31),
-      age: "1y",
-      label: "2021",
-      periodLabel: "Q1 · Mar 31",
-      events: [
-        milestone(
-          "Local development arrives",
-          "The first Supabase CLI brings the stack to local machines.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/supabase-cli",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-photo-2021-06-02",
-      year: datedPosition(2021, 6, 2),
-      age: "1y",
-      label: "2021",
-      periodLabel: "Q2 · Jun 2",
-      events: [],
-      photos: [
-        {
-          src: "/images/supabase/team-working-2021.png",
-          alt: "The Supabase team working together on June 2, 2021.",
-          x: 0,
-          y: 24,
-          width: 220,
-        },
-      ],
-    },
-    {
-      id: "supabase-auth-v2",
-      year: datedPosition(2021, 7, 28),
-      age: "1y",
-      label: "2021",
-      periodLabel: "Q3 · Jul 28",
-      events: [
-        milestone(
-          "Auth v2 adds Phone Auth",
-          "Passwordless SMS login reaches every project.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/supabase-auth-passwordless-sms-login",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-offsite-2021",
-      year: datedPosition(2021, 8, 19),
-      age: "1y",
-      label: "2021",
-      periodLabel: "Q3 · Aug 19",
-      events: [
-        milestone(
-          "2021 team offsite",
-          "The growing remote team gets together.",
-        ),
-      ],
-    },
-    {
       id: "supabase-series-a",
       year: datedPosition(2021, 10, 28),
       age: "2y",
       label: "2021",
-      periodLabel: "Q4 · Oct 28",
+      periodLabel: "Oct 28, 2021",
       events: [
         milestone(
           "$30M Series A",
@@ -644,7 +589,7 @@ export const supabaseTimeline: LifelineRecord = {
       year: datedPosition(2021, 11, 30),
       age: "2y",
       label: "2021",
-      periodLabel: "Q4 · Nov 30",
+      periodLabel: "Nov 30, 2021",
       events: [
         milestone(
           "Supabase Studio is released",
@@ -657,28 +602,11 @@ export const supabaseTimeline: LifelineRecord = {
       ],
     },
     {
-      id: "supabase-realtime-rls",
-      year: datedPosition(2021, 12, 1),
-      age: "2y",
-      label: "2021",
-      periodLabel: "Q4 · Dec 1",
-      events: [
-        milestone(
-          "Realtime respects Postgres RLS",
-          "Database policies begin securing live updates.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/realtime-row-level-security-in-postgresql",
-          },
-        ),
-      ],
-    },
-    {
       id: "supabase-logflare",
       year: datedPosition(2021, 12, 2),
       age: "2y",
       label: "2021",
-      periodLabel: "Q4 · Dec 2",
+      periodLabel: "Dec 2, 2021",
       events: [
         milestone(
           "Logflare joins Supabase",
@@ -692,10 +620,10 @@ export const supabaseTimeline: LifelineRecord = {
     },
     {
       id: "supabase-offsite-2022",
-      year: datedPosition(2022, 3, 16),
+      year: datedPosition(2022, 1, 15),
       age: "2y",
       label: "2022",
-      periodLabel: "Q1 · Mar 16",
+      periodLabel: "Jan 15, 2022",
       events: [
         milestone(
           "2022 team offsite",
@@ -704,28 +632,11 @@ export const supabaseTimeline: LifelineRecord = {
       ],
     },
     {
-      id: "supabase-graphql",
-      year: datedPosition(2022, 3, 29),
-      age: "2y",
-      label: "2022",
-      periodLabel: "Q1 · Mar 29",
-      events: [
-        milestone(
-          "GraphQL arrives",
-          "pg_graphql generates a GraphQL API from Postgres.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/graphql-now-available",
-          },
-        ),
-      ],
-    },
-    {
       id: "supabase-edge-functions",
       year: datedPosition(2022, 3, 31),
       age: "2y",
       label: "2022",
-      periodLabel: "Q1 · Mar 31",
+      periodLabel: "Mar 31, 2022",
       events: [
         milestone(
           "Edge Functions launch",
@@ -738,28 +649,11 @@ export const supabaseTimeline: LifelineRecord = {
       ],
     },
     {
-      id: "supabase-realtime-multiplayer",
-      year: datedPosition(2022, 4, 1),
-      age: "2y",
-      label: "2022",
-      periodLabel: "Q2 · Apr 1",
-      events: [
-        milestone(
-          "Realtime adds multiplayer",
-          "Broadcast and Presence support collaborative apps.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/supabase-realtime-with-multiplayer-features",
-          },
-        ),
-      ],
-    },
-    {
       id: "supabase-series-b",
       year: datedPosition(2022, 8, 12),
       age: "3y",
       label: "2022",
-      periodLabel: "Q3 · Aug 12",
+      periodLabel: "Aug 12, 2022",
       events: [
         milestone(
           "$80M Series B",
@@ -772,147 +666,11 @@ export const supabaseTimeline: LifelineRecord = {
       ],
     },
     {
-      id: "supabase-cli-v1",
-      year: datedPosition(2022, 8, 15),
-      age: "3y",
-      label: "2022",
-      periodLabel: "Q3 · Aug 15",
-      events: [
-        milestone(
-          "CLI v1 and Management API",
-          "Local workflows and platform automation reach beta.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/supabase-cli-v1-and-admin-api-beta",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-js-v2",
-      year: datedPosition(2022, 10, 20),
-      age: "3y",
-      label: "2022",
-      periodLabel: "Q4 · Oct 20",
-      events: [
-        milestone(
-          "supabase-js v2",
-          "The JavaScript client becomes smaller and fully typed.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/supabase-js-v2-released",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-storage-v2",
-      year: datedPosition(2022, 12, 13),
-      age: "3y",
-      label: "2022",
-      periodLabel: "Q4 · Dec 13",
-      events: [
-        milestone(
-          "Storage v2",
-          "Image resizing and a smart CDN ship.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/storage-image-resizing-smart-cdn",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-wrappers",
-      year: datedPosition(2022, 12, 15),
-      age: "3y",
-      label: "2022",
-      periodLabel: "Q4 · Dec 15",
-      events: [
-        milestone(
-          "Wrappers debuts",
-          "Postgres can query external systems as tables.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/postgres-foreign-data-wrappers-rust",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-logs-open-source",
-      year: datedPosition(2023, 4, 10),
-      age: "3y",
-      label: "2023",
-      periodLabel: "Q2 · Apr 10",
-      events: [
-        milestone(
-          "Logs goes open source",
-          "The Logflare logging server becomes self-hostable.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/supabase-logs-self-hosted",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-edge-runtime",
-      year: datedPosition(2023, 4, 11),
-      age: "3y",
-      label: "2023",
-      periodLabel: "Q2 · Apr 11",
-      events: [
-        milestone(
-          "Edge Runtime is released",
-          "Deno functions can run locally or self-hosted.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/edge-runtime-self-hosted-deno-functions",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-storage-v3",
-      year: datedPosition(2023, 4, 12),
-      age: "3y",
-      label: "2023",
-      periodLabel: "Q2 · Apr 12",
-      events: [
-        milestone(
-          "Storage v3",
-          "Resumable uploads support files up to 50GB.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/storage-v3-resumable-uploads",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-vector",
-      year: datedPosition(2023, 6, 9),
-      age: "3y",
-      label: "2023",
-      periodLabel: "Q2 · Jun 9",
-      events: [
-        milestone(
-          "Supabase Vector and 50K stars",
-          "A Postgres and pgvector toolkit arrives.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/supabase-beta-update-may-2023",
-          },
-        ),
-      ],
-    },
-    {
       id: "supabase-offsite-2023",
-      year: datedPosition(2023, 8, 5),
+      year: datedPosition(2023, 1, 15),
       age: "4y",
       label: "2023",
-      periodLabel: "Q3 · 2023",
+      periodLabel: "Jan 15, 2023",
       events: [
         milestone(
           "The company meets in Bali",
@@ -925,130 +683,11 @@ export const supabaseTimeline: LifelineRecord = {
       ],
     },
     {
-      id: "supabase-studio-three",
-      year: datedPosition(2023, 8, 9),
-      age: "4y",
-      label: "2023",
-      periodLabel: "Q3 · Aug 9",
-      events: [
-        milestone(
-          "Studio 3.0",
-          "An AI SQL editor and schema diagrams land in the dashboard.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/supabase-studio-3-0",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-supavisor",
-      year: datedPosition(2023, 8, 11),
-      age: "4y",
-      label: "2023",
-      periodLabel: "Q3 · Aug 11",
-      events: [
-        milestone(
-          "Supavisor",
-          "The Postgres pooler is built for one million connections.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/supavisor-1-million",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-branching",
-      year: datedPosition(2023, 12, 13),
-      age: "4y",
-      label: "2023",
-      periodLabel: "Q4 · Dec 13",
-      events: [
-        milestone(
-          "Branching begins",
-          "Database branches create isolated preview environments.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/supabase-branching",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-read-replicas",
-      year: datedPosition(2023, 12, 15),
-      age: "4y",
-      label: "2023",
-      periodLabel: "Q4 · Dec 15",
-      events: [
-        milestone(
-          "Read Replicas",
-          "Managed replicas spread reads across regions.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/introducing-read-replicas",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-general-availability",
-      year: datedPosition(2024, 4, 15),
-      age: "4y",
-      label: "2024",
-      periodLabel: "Q2 · Apr 15",
-      events: [
-        milestone(
-          "General Availability",
-          "Supabase leaves beta after reaching one million databases.",
-          {
-            label: "Source",
-            href: "https://supabase.com/ga",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-branching-public",
-      year: datedPosition(2024, 4, 15),
-      age: "4y",
-      label: "2024",
-      periodLabel: "Q2 · Apr 15",
-      events: [
-        milestone(
-          "Branching reaches public beta",
-          "Preview databases become available to every organization.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/branching-publicly-available",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-storage-s3",
-      year: datedPosition(2024, 4, 18),
-      age: "4y",
-      label: "2024",
-      periodLabel: "Q2 · Apr 18",
-      events: [
-        milestone(
-          "Storage speaks S3",
-          "S3-compatible clients can use Supabase Storage.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/s3-compatible-storage",
-          },
-        ),
-      ],
-    },
-    {
       id: "supabase-offsite-2024",
-      year: datedPosition(2024, 7),
+      year: datedPosition(2024, 1, 15),
       age: "4y",
       label: "2024",
-      periodLabel: "Annual",
+      periodLabel: "Jan 15, 2024",
       events: [
         milestone(
           "2024 company offsite",
@@ -1061,35 +700,18 @@ export const supabaseTimeline: LifelineRecord = {
       ],
     },
     {
-      id: "supabase-postgres-new",
-      year: datedPosition(2024, 8, 12),
+      id: "supabase-general-availability",
+      year: datedPosition(2024, 4, 15),
       age: "4y",
       label: "2024",
-      periodLabel: "Q3 · Aug 12",
+      periodLabel: "Apr 15, 2024",
       events: [
         milestone(
-          "Postgres in the browser",
-          "postgres.new pairs PGlite with an AI interface for SQL.",
+          "General Availability",
+          "Supabase leaves beta after reaching one million databases.",
           {
             label: "Source",
-            href: "https://supabase.com/blog/postgres-new",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-log-drains",
-      year: datedPosition(2024, 8, 15),
-      age: "4y",
-      label: "2024",
-      periodLabel: "Q3 · Aug 15",
-      events: [
-        milestone(
-          "Log Drains",
-          "Project logs can stream into external observability tools.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/log-drains",
+            href: "https://supabase.com/ga",
           },
         ),
       ],
@@ -1099,7 +721,7 @@ export const supabaseTimeline: LifelineRecord = {
       year: datedPosition(2024, 9, 25),
       age: "4y",
       label: "2024",
-      periodLabel: "Q3 · Sep 25",
+      periodLabel: "Sep 25, 2024",
       events: [
         milestone(
           "$80M Series C",
@@ -1112,69 +734,18 @@ export const supabaseTimeline: LifelineRecord = {
       ],
     },
     {
-      id: "supabase-cli-v2",
-      year: datedPosition(2024, 12, 4),
-      age: "5y",
-      label: "2024",
-      periodLabel: "Q4 · Dec 4",
-      events: [
-        milestone(
-          "CLI v2: Config as Code",
-          "Project configuration becomes version-controlled.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/cli-v2-config-as-code",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-postgres-language-server",
-      year: datedPosition(2025, 3, 29),
+      id: "supabase-offsite-2025",
+      year: datedPosition(2025, 1, 15),
       age: "5y",
       label: "2025",
-      periodLabel: "Q1 · Mar 29",
+      periodLabel: "Jan 15, 2025",
       events: [
         milestone(
-          "Postgres Language Server",
-          "Static analysis and editor tooling come to Postgres.",
+          "2025 company offsite",
+          "The distributed company meets in person.",
           {
             label: "Source",
-            href: "https://supabase.com/blog/postgres-language-server",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-realtime-broadcast",
-      year: datedPosition(2025, 4, 2),
-      age: "5y",
-      label: "2025",
-      periodLabel: "Q2 · Apr 2",
-      events: [
-        milestone(
-          "Broadcast from Database",
-          "Postgres changes can trigger low-latency Realtime messages.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/realtime-broadcast-from-database",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-mcp-server",
-      year: datedPosition(2025, 4, 4),
-      age: "5y",
-      label: "2025",
-      periodLabel: "Q2 · Apr 4",
-      events: [
-        milestone(
-          "Supabase MCP Server",
-          "AI tools can inspect and manage Supabase projects.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/mcp-server",
+            href: "https://supabase.com/blog/why-supabase-remote",
           },
         ),
       ],
@@ -1184,7 +755,7 @@ export const supabaseTimeline: LifelineRecord = {
       year: datedPosition(2025, 4, 22),
       age: "5y",
       label: "2025",
-      periodLabel: "Q2 · Apr 22",
+      periodLabel: "Apr 22, 2025",
       events: [
         milestone(
           "$200M Series D",
@@ -1201,7 +772,7 @@ export const supabaseTimeline: LifelineRecord = {
       year: datedPosition(2025, 6, 10),
       age: "5y",
       label: "2025",
-      periodLabel: "Q2 · Jun 10",
+      periodLabel: "Jun 10, 2025",
       events: [
         milestone(
           "Multigres is announced",
@@ -1214,45 +785,11 @@ export const supabaseTimeline: LifelineRecord = {
       ],
     },
     {
-      id: "supabase-offsite-2025",
-      year: datedPosition(2025, 7),
-      age: "5y",
-      label: "2025",
-      periodLabel: "Annual",
-      events: [
-        milestone(
-          "2025 company offsite",
-          "The distributed company meets in person.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/why-supabase-remote",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-branching-two",
-      year: datedPosition(2025, 7, 16),
-      age: "5y",
-      label: "2025",
-      periodLabel: "Q3 · Jul 16",
-      events: [
-        milestone(
-          "Branching 2.0",
-          "Git-backed branches give way to faster database-native workflows.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/branching-2-0",
-          },
-        ),
-      ],
-    },
-    {
       id: "supabase-series-e",
       year: datedPosition(2025, 10, 3),
       age: "5y",
       label: "2025",
-      periodLabel: "Q4 · Oct 3",
+      periodLabel: "Oct 3, 2025",
       events: [
         milestone(
           "$100M Series E",
@@ -1265,28 +802,11 @@ export const supabaseTimeline: LifelineRecord = {
       ],
     },
     {
-      id: "supabase-analytical-stack",
-      year: datedPosition(2025, 12, 2),
-      age: "6y",
-      label: "2025",
-      periodLabel: "Q4 · Dec 2",
-      events: [
-        milestone(
-          "The data stack expands",
-          "Vector Buckets, Analytics Buckets, and Pipelines arrive.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/introducing-supabase-pipelines",
-          },
-        ),
-      ],
-    },
-    {
       id: "supabase-hydra",
       year: datedPosition(2026, 2, 10),
       age: "6y",
       label: "2026",
-      periodLabel: "Q1 · Feb 10",
+      periodLabel: "Feb 10, 2026",
       events: [
         milestone(
           "Hydra joins Supabase",
@@ -1303,7 +823,7 @@ export const supabaseTimeline: LifelineRecord = {
       year: datedPosition(2026, 4, 2),
       age: "6y",
       label: "2026",
-      periodLabel: "Q2 · Apr 2",
+      periodLabel: "Apr 2, 2026",
       events: [
         milestone(
           "100K GitHub stars",
@@ -1320,7 +840,7 @@ export const supabaseTimeline: LifelineRecord = {
       year: datedPosition(2026, 5, 4),
       age: "6y",
       label: "2026",
-      periodLabel: "Q2 · May 4",
+      periodLabel: "May 4, 2026",
       events: [
         milestone(
           "Branching without Git becomes default",
@@ -1333,28 +853,11 @@ export const supabaseTimeline: LifelineRecord = {
       ],
     },
     {
-      id: "supabase-chatgpt-app",
-      year: datedPosition(2026, 5, 8),
-      age: "6y",
-      label: "2026",
-      periodLabel: "Q2 · May 8",
-      events: [
-        milestone(
-          "Supabase becomes a ChatGPT app",
-          "The official integration exposes 29 project tools.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/supabase-is-now-an-official-chatgpt-app",
-          },
-        ),
-      ],
-    },
-    {
       id: "supabase-series-f",
       year: datedPosition(2026, 6, 4),
       age: "6y",
       label: "2026",
-      periodLabel: "Q2 · Jun 4",
+      periodLabel: "Jun 4, 2026",
       events: [
         milestone(
           "$500M Series F",
@@ -1362,40 +865,6 @@ export const supabaseTimeline: LifelineRecord = {
           {
             label: "Source",
             href: "https://supabase.com/blog/series-f",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-unified-logs",
-      year: datedPosition(2026, 7, 16),
-      age: "6y",
-      label: "2026",
-      periodLabel: "Q3 · Jul 16",
-      events: [
-        milestone(
-          "Unified Logs enters open beta",
-          "Database, API, Auth, Storage, and Functions logs share one view.",
-          {
-            label: "Source",
-            href: "https://supabase.com/blog/unified-logs-open-beta",
-          },
-        ),
-      ],
-    },
-    {
-      id: "supabase-pipelines-alpha",
-      year: datedPosition(2026, 7, 21),
-      age: "6y",
-      label: "2026",
-      periodLabel: "Q3 · Jul 21",
-      events: [
-        milestone(
-          "Pipelines enters public alpha",
-          "Managed CDC begins streaming Postgres changes to BigQuery.",
-          {
-            label: "Source",
-            href: "https://supabase.com/changelog",
           },
         ),
       ],

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import type { LifelineRecord } from "@/lib/lifeline-data"
 import type { DatabaseTimelineId } from "@/lib/database-timelines"
 import type { PrintDimensions } from "@/lib/print-dimensions"
+import type { StargazerPoint } from "@/lib/stargazer-data"
 
 interface TimelinePageProps {
   activeTimeline: DatabaseTimelineId
@@ -14,6 +15,7 @@ interface TimelinePageProps {
   initialPrintDimensions: PrintDimensions
   initialShowPrintGuides: boolean
   initialPrintBoardCount: number
+  stargazerSeries?: StargazerPoint[]
 }
 
 export function TimelinePage({
@@ -23,6 +25,7 @@ export function TimelinePage({
   initialPrintDimensions,
   initialShowPrintGuides,
   initialPrintBoardCount,
+  stargazerSeries,
 }: TimelinePageProps) {
   return (
     <div
@@ -41,6 +44,7 @@ export function TimelinePage({
           initialPrintDimensions={initialPrintDimensions}
           initialShowPrintGuides={initialShowPrintGuides}
           initialPrintBoardCount={initialPrintBoardCount}
+          stargazerSeries={stargazerSeries}
         />
       </main>
     </div>

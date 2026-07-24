@@ -9,35 +9,40 @@ export const LIFELINE_STICKY_LEFT = 20
 export function LifelineStickyLabels({
   ageLabel = "Age",
   axisLabel = "Years",
-  periodAxisLabel,
+  variant = "timeline",
 }: {
   ageLabel?: string
   axisLabel?: string
-  periodAxisLabel?: string
+  variant?: "timeline" | "print"
 }) {
+  const isPrint = variant === "print"
+
   return (
     <div
-      className="relative"
-      style={{ width: LIFELINE_LABEL_COLUMN_WIDTH }}
+      className="relative [width:var(--lifeline-label-column-width)]"
       aria-hidden="true"
     >
       <div className="flex flex-col items-start text-left">
-        <p className="mb-5 h-4 text-[11px] font-medium uppercase leading-4 tracking-[0.08em] text-zinc-500 transition-colors duration-300 dark:text-zinc-600">
+        <p
+          className={cn(
+            "[height:var(--lifeline-axis-age-leading)] [font-size:var(--lifeline-axis-age-size)] [line-height:var(--lifeline-axis-age-leading)] [margin-bottom:var(--lifeline-axis-age-gap)] font-medium uppercase tracking-[0.08em] transition-colors duration-300",
+            isPrint
+              ? "text-[var(--print-muted)]"
+              : "text-zinc-500 dark:text-zinc-600",
+          )}
+        >
           {ageLabel}
         </p>
         <p
           className={cn(
-            "h-5 text-[11px] font-medium uppercase leading-5 tracking-[0.08em] text-zinc-500 transition-colors duration-300 dark:text-zinc-600",
-            periodAxisLabel ? "mb-1" : "mb-6",
+            "[height:var(--lifeline-axis-year-leading)] [font-size:var(--lifeline-axis-age-size)] [line-height:var(--lifeline-axis-year-leading)] [margin-bottom:var(--lifeline-axis-year-gap)] font-medium uppercase tracking-[0.08em] transition-colors duration-300",
+            isPrint
+              ? "text-[var(--print-muted)]"
+              : "text-zinc-500 dark:text-zinc-600",
           )}
         >
           {axisLabel}
         </p>
-        {periodAxisLabel ? (
-          <p className="mb-6 h-4 text-[11px] font-medium uppercase leading-4 tracking-[0.08em] text-zinc-500 transition-colors duration-300 dark:text-zinc-600">
-            {periodAxisLabel}
-          </p>
-        ) : null}
       </div>
     </div>
   )
