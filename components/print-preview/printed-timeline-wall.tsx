@@ -344,7 +344,7 @@ function PrintYearLabels({
               (yearPlacements[0].connectorXFeet /
                 layout.totalWidthFeet) *
               100
-            }% - var(--lifeline-sticky-shield-width))`,
+            }% - var(--lifeline-sticky-shield-width) + var(--print-space-sm))`,
             transform:
               "translateY(calc(-100% - var(--print-axis-rail-gap)))",
           }}

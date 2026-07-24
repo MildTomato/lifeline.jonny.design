@@ -22,7 +22,14 @@ export function LifelineStickyLabels({
       className="relative [width:var(--lifeline-label-column-width)]"
       aria-hidden="true"
     >
-      <div className="flex flex-col items-start text-left">
+      <div
+        className={cn(
+          "flex w-full flex-col",
+          isPrint
+            ? "items-stretch text-right"
+            : "items-start text-left",
+        )}
+      >
         <p
           className={cn(
             "[height:var(--lifeline-axis-age-leading)] [font-size:var(--lifeline-axis-age-size)] [line-height:var(--lifeline-axis-age-leading)] [margin-bottom:var(--lifeline-axis-age-gap)] font-medium uppercase tracking-[0.08em] transition-colors duration-300",
